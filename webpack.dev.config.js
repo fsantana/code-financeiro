@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 module.exports = {
 
-    devtol: 'source-map',
+    devtool: 'source-map',
     plugins: [
         new webpack.HotModuleReplacementPlugin()
     ]
