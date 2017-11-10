@@ -30,24 +30,16 @@
                     'name' => Auth::user()->name,
                     'menus' => [
                         ['name' => "Dashboard", 'url' => '/admin/dashboard'],
-                        ['name' => 'Contas a pagar', 'url' => '', 'dropdownId' => 'apagar'],
-                        ['name' => 'Contas a receber', 'url' => '', 'dropdownId' => 'areceber']
+                        ['name' => 'Usuários', 'url' => '', 'dropdownId' => 'usuarios']
                     ],
                     'menusDropdown' => [
                         [
-                            'id' => 'apagar',
+                            'id' => 'usuarios',
                             'items' => [
-                                ['name' => 'Listar', 'url' => '/apagar/listar'],
-                                ['name' => 'Criar', 'url' => '/apagar/criar']
+                                ['name' => 'Listar', 'url' => '/usuarios/listar'],
+                                ['name' => 'Criar', 'url' => '/usuarios/criar']
                             ]
-                        ],
-                        [
-                            'id' => 'areceber',
-                            'items' => [
-                                ['name' => 'Listar', 'url' => '/areceber/listar'],
-                                ['name' => 'Criar', 'url' => '/areceber/criar']
-                            ]
-                        ],
+                        ]
                     ],
                     'urlLogout' => env('URL_ADMIN_LOGOUT'),
                     'csrfToken' => csrf_token()
