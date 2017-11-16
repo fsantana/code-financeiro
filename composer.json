@@ -6,8 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "laravel/framework": "5.3.*",
-        "tymon/jwt-auth": "dev-develop"
+        "barryvdh/laravel-cors": "0.8.2",
+        "laravel/framework": "5.3.18",
+        "tymon/jwt-auth": "dev-develop#35132a71869d5231ef99cde95a8ce0bd8d0b6b0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -7,14 +7,23 @@
     "prod": "gulp --production",
     "dev": "gulp watch"
   },
+  "engines": {
+    "node": "6.8.1",
+    "npm": "3.10.8"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-env": "^0.4.0",
+    "gulp-file": "^0.3.0",
     "laravel-elixir": "^6.0.0-9",
     "laravel-elixir-browsersync-official": "^1.0.0",
     "laravel-elixir-vue": "^0.1.4",
     "laravel-elixir-webpack-official": "^1.0.2",
+    "lodash": "4.17.4",
     "materialize-autocomplete": "^1.0.7",
     "materialize-css": "^0.97.7",
+    "node-sass": "^4.6.1",
+    "stringify-object": "^3.2.1",
     "vue": "^1.0.26",
     "vue-resource": "^1.0.3",
     "vue-router": "^0.7.13",

@@ -65,14 +65,14 @@ class AuthController extends Controller
     }
 
     public function refreshToken(Request $request){
-
-        try{
+        $token = Auth::guard('api')->refresh();
+        /*try{
             $token = Auth::guard('api')->refresh();
         }catch (TokenExpiredException $e){
             return response()->json([
                 'message'=> $e->getMessage()
             ],401);
-        }
+        }*/
         return $this->sendLoginResponse($request,$token);
     }
 

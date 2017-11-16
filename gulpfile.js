@@ -5,7 +5,9 @@ const WebpackDevServer = require('webpack-dev-server');
 const webpackConfig = require('./webpack.config');
 const webpackDevConfig = require('./webpack.dev.config');
 const mergeWebpack = require('webpack-merge');
-
+const env = require('gulp-env');
+const stringifyObject = require('stringify-object');
+const file = require('gulp-file');
 //require('laravel-elixir-vue');
 //require('laravel-elixir-webpack-official');
 
@@ -24,6 +26,17 @@ Elixir.webpack.mergeConfig(webpackDevConfig);*/
  | file for your application as well as publishing vendor resources.
  |
  */
+gulp.task('spa-config', () => {
+    env({
+        file: '.env',
+        type: 'ini'
+    })
+    let spaConfig = require('./spa.config');
+    let string = stringifyObject(spaConfig);
+    return file('config.js', `module.exports = ${string};`, {src:true})
+        .pipe(gulp.dest('./resources/assets/spa/js'));
+
+});
 
 gulp.task('webpack-dev-server',()=>{
     let config =  mergeWebpack(webpackConfig, webpackDevConfig);
@@ -56,8 +69,10 @@ gulp.task('webpack-dev-server',()=>{
 
 elixir(mix => {
     mix.sass('./resources/assets/admin/sass/admin.scss')
+        .sass('./resources/assets/spa/sass/spa.scss')
         .copy('./node_modules/materialize-css/fonts/roboto','public/fonts/roboto');
 
+    gulp.start('spa-config');
     gulp.start('webpack-dev-server');
 
     mix.browserSync({
